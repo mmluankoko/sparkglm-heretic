@@ -180,10 +180,9 @@ RUN --mount=type=cache,target=/build/target,id=atlas-cargo-target,sharing=shared
       grep -E 'test result: ok. [1-9][0-9]* passed;' /tmp/atlas-vision-cache-check.log; \
     done
 
-FROM nvidia/cuda:13.0.0-runtime-ubuntu24.04@sha256:95318efecfd68ab3d109da5277863257b06137c84f34a87f38de970d5cd035d3 AS runtime
-RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends --allow-change-held-packages \
-    python3 ca-certificates ffmpeg libnccl2=2.31.2-1+cuda13.3 libibverbs1 librdmacm1 \
-    ibverbs-providers libnl-3-200 libnl-route-3-200 && rm -rf /var/lib/apt/lists/*
+# Reuse the matching SparkGLM release's runtime libraries and shared image layers.
+# c8ced64316bf pins Atlas b3b016a, the base of our engine patch.
+FROM ghcr.io/enntity/atlas-sparkglm:c8ced64316bf@sha256:0b91fd790afb2ee3aa5a7f39a0bc5a90db05751436ae7810e00f129c36ebbb7b AS runtime
 COPY --from=builder /build/dist/spark /usr/local/bin/spark
 COPY --from=builder /build/jinja-templates/ /jinja-templates/
 COPY --from=native /opt/atlas/native/*.so /opt/atlas/native/

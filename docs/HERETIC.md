@@ -10,7 +10,10 @@ SparkGLM 基线为 `9f749f554c77e8216c2a2fee2849151ffba76430`，Atlas 基线为
 
 `install/build.sh` 拉取 `atlas-source.json` 指定的引擎，校验 commit/tree，
 应用 Heretic 补丁，再逐文件核对 `sources.lock.json` 中的 SHA256。随后使用
-SparkGLM 原有 Dockerfile 构建原生库、引擎和运行镜像。`install/` 的 Git tree
+Dockerfile 构建原生库和引擎，运行阶段继承固定的 SparkGLM
+`c8ced64316bf` 镜像（digest `0b91fd790afb2ee3aa5a7f39a0bc5a90db05751436ae7810e00f129c36ebbb7b`），
+复用其中的 CUDA、NCCL、RDMA 和 Python 运行库，再叠加我们的编译产物与配置。
+`install/` 的 Git tree
 仍决定镜像 tag；改动此目录后需先提交再构建。默认镜像名为
 `sparkglm-heretic:<install-tree 的前 12 位>`，可用 `SPARKGLM_IMAGE_REPO` 覆盖。
 

@@ -32,6 +32,7 @@ so none of its code is included; its harness calls it from a local checkout.
 | Component | License |
 |---|---|
 | Atlas engine, [`Enntity/atlas`](https://github.com/Enntity/atlas) at the pinned commit | AGPL-3.0-only |
+| SparkGLM runtime base, `ghcr.io/enntity/atlas-sparkglm:c8ced64316bf` at the digest pinned in `install/Dockerfile` | AGPL-3.0-only application; bundled libraries retain their own terms and notices |
 | FlashKDA (MoonshotAI) | MIT |
 | FlashInfer | Apache-2.0 ([`LICENSES/Apache-2.0.txt`](../LICENSES/Apache-2.0.txt)) |
 | NVIDIA's sparse-MLA SM120 prefill source inside FlashInfer (`csrc/sparse_mla_sm120_prefill.cu`, `include/flashinfer/attention/sparse_mla_sm120/`) | BSD-3-Clause, Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES ([`LICENSES/BSD-3-Clause-NVIDIA.txt`](../LICENSES/BSD-3-Clause-NVIDIA.txt)) |

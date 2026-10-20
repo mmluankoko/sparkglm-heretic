@@ -26,6 +26,10 @@ image=$(./install/build.sh --tag)
 docker save "$image" | ssh YOUR_WORKER docker load
 ```
 
+构建会传递现有 `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY`，不将代理写入
+Dockerfile。若代理只监听宿主机回环地址，构建时使用
+`SPARKGLM_BUILD_NETWORK=host ./install/build.sh` 使构建阶段能连接该代理。
+
 本次迁移沿用已验证的引擎补丁字节；启动脚本已改为读取用户自己的配置。
 旧工作目录、完整 Atlas 快照、CUTLASS 压缩包、编译产物、运行时缓存与权重均未迁入。
 

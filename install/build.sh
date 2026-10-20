@@ -37,7 +37,9 @@ cp "$here/dockerignore" "$context/.dockerignore"
 # host), at most half the cores and at least 2.
 jobs=${ATLAS_BUILD_JOBS:-$(awk -v cores="$(nproc)" '/MemAvailable/ {
   j = int($2 / 1048576 / 10); if (j > cores / 2) j = int(cores / 2); if (j < 2) j = 2; print j }' /proc/meminfo)}
-args=(--build-arg "INSTALL_TREE=$tree" --build-arg "BUILD_JOBS=$jobs" -f "$context/install/Dockerfile")
+args=(--network "${SPARKGLM_BUILD_NETWORK:-default}"
+      --build-arg HTTP_PROXY --build-arg HTTPS_PROXY --build-arg NO_PROXY
+      --build-arg "INSTALL_TREE=$tree" --build-arg "BUILD_JOBS=$jobs" -f "$context/install/Dockerfile")
 echo "building $image with $jobs jobs" >&2
 # The release checks (the `checks` stage) run unless ATLAS_IMAGE_CHECKS=0, for
 # builds whose engine commit already passed them elsewhere.

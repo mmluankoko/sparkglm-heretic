@@ -23,11 +23,13 @@ cluster, node = module('cluster'), module('node')
 
 
 class Launcher(unittest.TestCase):
-    def config(self, profile='heretic'):
+    def config(self, profile=None):
+        if profile is None:
+            return cluster.config(ROOT / 'cluster.example.json')
         return cluster.config(ROOT / 'cluster.example.json', profile)
 
-    def test_default_keeps_eager_and_shared_base_mount(self):
-        cfg = self.config()
+    def test_explicit_heretic_keeps_eager_and_shared_base_mount(self):
+        cfg = self.config('heretic')
         self.assertFalse(cfg['stock'])
         self.assertNotIn('--dflash', cfg['profile']['server_argv'])
         for rank in (0, 1):
@@ -38,8 +40,9 @@ class Launcher(unittest.TestCase):
             self.assertNotIn('--speculative', argv)
             self.assertFalse(any('${' in arg for arg in argv))
 
-    def test_dflash_keeps_reviewed_single_owner_guards(self):
-        cfg = self.config('heretic-dflash')
+    def test_default_dflash_keeps_reviewed_single_owner_guards(self):
+        cfg = self.config()
+        self.assertEqual(cfg['mode'], 'heretic-dflash')
         for rank in (0, 1):
             argv = node.docker_argv(cfg, rank, 'fixture')
             for expected in ('--dflash', '--mtp-gate=force', '--dflash-gamma=8',
@@ -56,7 +59,7 @@ class Launcher(unittest.TestCase):
 
     def test_drafter_required_only_for_dflash(self):
         with tempfile.TemporaryDirectory() as directory:
-            cfg = self.config()
+            cfg = self.config('heretic')
             cfg['drafter'] = directory
             node.require_drafter(cfg)
             cfg = self.config('heretic-dflash')
@@ -113,6 +116,10 @@ class Launcher(unittest.TestCase):
                                 cwd=repo, capture_output=True, text=True, check=True)
         value = json.loads(result.stdout)
         self.assertEqual(len(value['rank_commands']), 2)
+        self.assertEqual(value['mode'], 'heretic-dflash')
+        for argv in value['rank_commands']:
+            self.assertIn('--dflash', argv)
+            self.assertIn('--draft-model=' + self.config()['drafter'], argv)
         self.assertNotIn('REPLACE_WITH_YOUR_LOCAL_API_KEY', result.stdout)
         self.assertIn('--auth-token=<redacted>', result.stdout)
 

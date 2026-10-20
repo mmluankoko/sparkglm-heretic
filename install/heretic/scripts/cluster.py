@@ -14,9 +14,10 @@ import uuid
 HERE = Path(__file__).resolve().parents[1]
 NODE = HERE / 'scripts/node.py'
 DEFAULT_CONFIG = HERE.parents[1] / 'heretic.local.json'
+DEFAULT_PROFILE = 'heretic-dflash'
 
 
-def config(path, profile='heretic'):
+def config(path, profile=DEFAULT_PROFILE):
     if profile not in ('stock', 'heretic', 'heretic-dflash'):
         raise ValueError('Unknown Heretic profile')
     cfg = json.loads(Path(path).read_text())
@@ -96,7 +97,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['start', 'stop', 'status', 'preflight'])
     parser.add_argument('--config', type=Path, default=DEFAULT_CONFIG)
-    parser.add_argument('--profile', choices=['stock', 'heretic', 'heretic-dflash'], default='heretic')
+    parser.add_argument('--profile', choices=['stock', 'heretic', 'heretic-dflash'], default=DEFAULT_PROFILE)
     parser.add_argument('--dry-run', action='store_true', help='print commands without SSH or Docker')
     args = parser.parse_args()
     cfg = config(args.config, args.profile)

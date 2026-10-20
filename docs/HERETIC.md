@@ -49,18 +49,18 @@ model 字段选用 base 或 Heretic**，不是在一个生成中的序列内切�
 
 复制 `install/heretic/cluster.example.json` 到根目录 `heretic.local.json`，
 填写两台机器的网络、worker SSH、已有模型与 adapter 路径、镜像 tag 和 API key。
-`model_root` 需要覆盖 overlay 及其软链接指向的基座路径，以及可选 drafter；
+`model_root` 需要覆盖 overlay 及其软链接指向的基座路径，以及默认 DFlash 方案需要的 drafter；
 同一绝对路径须在两机可用。`project` 用于两机运行缓存，应可由当前用户创建。
 `model_config_sha256` 必须与实际 overlay 的 `config.json` 一致；示例中是原部署的值。
 API 默认只绑定 `127.0.0.1:8002`。
 
 ```bash
 ./start.sh heretic start --dry-run
-./start.sh heretic start
+./start.sh heretic start  # 默认 heretic-dflash
 ./start.sh heretic status
 ./start.sh heretic stop
-# 上一个服务停止后再选择 DFlash profile：
-./start.sh heretic start --profile heretic-dflash
+# 上一个服务停止后可显式选择普通 eager profile：
+./start.sh heretic start --profile heretic
 ```
 
 使用 `--config /absolute/path/config.json` 可读取其它本地配置。所有 Heretic
@@ -68,7 +68,8 @@ profile 共用一个容器命名空间，因此 stop/status 不依赖启动时�
 停止与失败回滚检查容器 ownership label，回滚还核对本次 launch ID。
 基础模型文件只读挂载；启动仅同步两个 adapter 文件，不下载基座或 drafter。
 
-普通 `heretic` profile 不开启 speculative decoding；`heretic-dflash` 只允许
+默认使用 `heretic-dflash`；显式选择普通 `heretic` profile 可关闭 speculative decoding。
+`heretic-dflash` 只允许
 单 owner、K1..8 canonical target verify，使用 F32 records、FP8 KV、gamma8 和
 2048-token prefill。两者均限制一个活跃请求，禁用 prefix caching、decode graphs、
 sequence parallelism 与 KV shard。`stock` profile 仅供原配置对照，不安装 adapter。

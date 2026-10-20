@@ -9,7 +9,7 @@
 - **一份基座、两种模型名**：`glm53-base` 跳过 LoRA，`heretic` 应用真实 rank-1 增量；同一服务同时提供两个入口，按请求选择。
 - **运行时计算增量**：覆盖 attention O、共享专家 down 和路由专家 down，共 5,520 对 A/B 矩阵；不合并基座、不重新量化完整模型。
 - **隔离请求身份**：adapter 身份传入双 rank，并与 KV / SSM 状态绑定，避免切换后复用另一身份的状态。
-- **可选 DFlash2**：保留单活跃请求的 Heretic DFlash 路径；默认使用普通 eager Heretic profile。
+- **默认 DFlash2**：使用单活跃请求的 Heretic DFlash 路径；普通 eager 方案可通过 `--profile heretic` 显式选择。
 
 历史冻结版（Atlas `289cefb`）已完成 **24/24 API 请求通过、9/9 同模型切换复现通过**，覆盖 Chat、SSE、completions、换行 stop 和分块 prefill。见[原始收据与验证范围](results/2026-10-19-heretic-dflash/RESULT.md)。
 
@@ -21,7 +21,7 @@
 |---|---|---|
 | 本项目使用的 NVFP4 基座 | [nvidia/GLM-5.3-Flash-NVFP4](https://huggingface.co/nvidia/GLM-5.3-Flash-NVFP4) | 复用已有权重及 Atlas overlay |
 | 原始 Heretic V3 LoRA | [MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF](https://huggingface.co/MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF) | 使用 [固定版本 c5623df](https://huggingface.co/MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF/tree/c5623df0c106cb05a6625669011f1336d6460e09) 的 `glm-5.3-heretic-lora-v3.gguf`，本地转换为 PEFT |
-| 可选 DFlash2 草稿模型 | [incoai/GLM-5.3-Flash-DFlash2](https://huggingface.co/incoai/GLM-5.3-Flash-DFlash2) | 仅 DFlash profile 使用；遵循其模型卡许可 |
+| 默认 DFlash2 草稿模型 | [incoai/GLM-5.3-Flash-DFlash2](https://huggingface.co/incoai/GLM-5.3-Flash-DFlash2) | 默认 DFlash profile 需要；遵循其模型卡许可 |
 | 原始模型 | [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash) | 模型作者与架构来源 |
 
 **仓库只包含代码、配置、补丁与测试收据，不包含原始 LoRA、转换后的 adapter 或基座权重。** 原始 GGUF 的 SHA256 为 `6a1cf5e5e3d50889c7b1533fca8969f944f61293bd14c1a93365feb54b51fdc3`；本地转换输出为 69,988,048 字节，SHA256 为 `59fc0271b34a1f4f6957d5d4a6c371e1ee915b1e3e5330d76161622839c3c16d`。原作者在 Unsloth UD-IQ4_XS 上优化的指标不直接等同于本项目 NVFP4 上的效果。
@@ -45,8 +45,8 @@ cp install/heretic/cluster.example.json heretic.local.json
 # 编辑 heretic.local.json：镜像 tag、SSH、路径、两机网络、API key。
 # model_config_sha256 对应已有 overlay 的 config.json（sha256sum 可核对）。
 ./start.sh heretic start --dry-run
-./start.sh heretic start
-# 可选：./start.sh heretic start --profile heretic-dflash
+./start.sh heretic start  # 默认 heretic-dflash，需提前准备 DFlash2 草稿模型
+# 普通 eager 方案：./start.sh heretic start --profile heretic
 ```
 
 `heretic.local.json` 已加入忽略规则。启动前检查两机模型路径、镜像补丁标记和文件 hash，仅同步约 70 MB adapter，不自动下载或复制完整基座。`--dry-run` 不连接机器、不调用 Docker，并隐藏 API key。停止服务用 `./start.sh heretic stop`，状态用 `./start.sh heretic status`。

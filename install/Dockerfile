@@ -68,6 +68,16 @@ FROM builder AS checks
 # CUDA stubs permit these CPU-only tests without GPU build entitlements.
 RUN mkdir -p /opt/cuda-stubs && \
     ln -s /usr/local/cuda/lib64/stubs/libcuda.so /opt/cuda-stubs/libcuda.so.1
+# Public IDs must work for both HTTP routing/response identity and DFlash
+# admission, while the existing single-owner launch boundaries stay enforced.
+RUN --mount=type=cache,target=/build/target,id=atlas-cargo-target,sharing=shared \
+    set -eu; for filter in lora_selection::tests:: lora_dflash_launch::tests::; do \
+      LD_LIBRARY_PATH=/opt/cuda-stubs:/usr/local/cuda/lib64 \
+      cargo test --locked --release -j "$BUILD_JOBS" -p spark-server --bin spark "$filter" \
+        > /tmp/atlas-model-id-check.log 2>&1 || { cat /tmp/atlas-model-id-check.log; exit 1; }; \
+      cat /tmp/atlas-model-id-check.log; \
+      grep -F 'test result: ok. 3 passed;' /tmp/atlas-model-id-check.log; \
+    done
 RUN --mount=type=cache,target=/build/target,id=atlas-cargo-target,sharing=shared \
     LD_LIBRARY_PATH=/opt/cuda-stubs:/usr/local/cuda/lib64 \
     cargo test --locked --release -j "$BUILD_JOBS" -p atlas-kernels --lib \

@@ -3,8 +3,10 @@
 FROM nvidia/cuda:13.0.0-devel-ubuntu24.04@sha256:1e8ac7a54c184a1af8ef2167f28fa98281892a835c981ebcddb1fad04bdd452d AS native
 RUN apt-get update -qq && apt-get install -y -qq --no-install-recommends \
     git ca-certificates build-essential python3 && rm -rf /var/lib/apt/lists/*
-RUN git clone https://github.com/flashinfer-ai/flashinfer.git /opt/flashinfer && \
-    git -C /opt/flashinfer checkout --detach 8eccd0c1352165302840c0e19066bc42d36dbd7a
+RUN git init -q /opt/flashinfer && \
+    git -C /opt/flashinfer fetch --depth 1 https://github.com/flashinfer-ai/flashinfer.git \
+      8eccd0c1352165302840c0e19066bc42d36dbd7a && \
+    git -C /opt/flashinfer checkout --detach FETCH_HEAD
 COPY engine/scripts/dev/glm_sparse_native /engine/scripts/dev/glm_sparse_native
 COPY engine/research/flash-kda-prefill /engine/research/flash-kda-prefill
 COPY install/build-native.sh /product/install/build-native.sh
@@ -26,8 +28,10 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
 ENV PATH="/root/.cargo/bin:${PATH}"
 ENV RUSTUP_TOOLCHAIN=1.93.1 CUDA_HOME=/usr/local/cuda CUTLASS_HOME=/opt/cutlass
 ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs
-RUN git clone https://github.com/NVIDIA/cutlass.git /opt/cutlass && \
-    git -C /opt/cutlass checkout cf064d2e6bad2886238ac565b3b49007764f4939
+RUN git init -q /opt/cutlass && \
+    git -C /opt/cutlass fetch --depth 1 https://github.com/NVIDIA/cutlass.git \
+      cf064d2e6bad2886238ac565b3b49007764f4939 && \
+    git -C /opt/cutlass checkout --detach FETCH_HEAD
 WORKDIR /build
 COPY engine/Cargo.toml engine/Cargo.lock engine/rust-toolchain.toml engine/README.md ./
 COPY engine/crates/ crates/

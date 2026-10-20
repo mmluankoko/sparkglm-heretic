@@ -10,12 +10,13 @@ source_dir=${FLASH_KDA_SOURCE:-/tmp/FlashKDA-atlas}
 output_dir=${FLASH_KDA_OUTPUT:-$script_dir}
 
 if [[ ! -d "$source_dir/.git" ]]; then
-  git clone https://github.com/MoonshotAI/FlashKDA.git "$source_dir"
+  git init -q "$source_dir"
+  git -C "$source_dir" fetch --depth 1 https://github.com/MoonshotAI/FlashKDA.git "$flash_kda_commit"
 fi
 git_source=(git -c "safe.directory=$source_dir" -C "$source_dir")
 git_cutlass=(git -c "safe.directory=$source_dir/cutlass" -C "$source_dir/cutlass")
 "${git_source[@]}" checkout --detach "$flash_kda_commit"
-"${git_source[@]}" submodule update --init cutlass
+"${git_source[@]}" submodule update --init --depth 1 cutlass
 
 actual_flash=$("${git_source[@]}" rev-parse HEAD)
 actual_cutlass=$("${git_cutlass[@]}" rev-parse HEAD)

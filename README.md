@@ -42,12 +42,14 @@ python3 install/heretic/scripts/convert_gguf_lora_to_peft.py \
 # 在构建机生成包含本项目引擎补丁的镜像，再将同一镜像提供给两台 Spark。
 ./install/build.sh
 cp install/heretic/cluster.example.json heretic.local.json
-# 编辑 heretic.local.json：镜像 tag、SSH、路径、两机网络、API key。
+# 编辑 heretic.local.json：镜像 tag、SSH、路径、两机网络、API key、对外模型 ID。
 # model_config_sha256 对应已有 overlay 的 config.json（sha256sum 可核对）。
 ./start.sh heretic start --dry-run
 ./start.sh heretic start  # 默认 heretic-dflash，需提前准备 DFlash2 草稿模型
 # 普通 eager 方案：./start.sh heretic start --profile heretic
 ```
+
+`heretic.local.json` 中的 `served_model_name` 和 `served_adapter_name` 分别设置原版与改造版的对外模型 ID，默认为 `glm53-base` 和 `heretic`，两个值必须不同。`/v1/models`、请求的 `model` 和响应的 `model` 使用这些名称；名称在服务启动时确定。
 
 `heretic.local.json` 已加入忽略规则。启动前检查两机模型路径、镜像补丁标记和文件 hash，仅同步约 70 MB adapter，不自动下载或复制完整基座。`--dry-run` 不连接机器、不调用 Docker，并隐藏 API key。停止服务用 `./start.sh heretic stop`，状态用 `./start.sh heretic status`。
 

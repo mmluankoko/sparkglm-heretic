@@ -123,11 +123,12 @@ def docker_argv(cfg, rank, launch_id):
     for key, value in sorted(env.items()):
         args += ['--env', f'{key}={value}']
     server = [str(a).replace('${model}', cfg['model']).replace('${drafter}', cfg['drafter'])
+                   .replace('--lora-adapter=heretic=', '--lora-adapter='+cfg['served_adapter_name']+'=')
               for a in cfg['profile']['server_argv']]
     server += [f'--rank={rank}', f"--master-addr={cfg['master_addr']}", f"--master-port={cfg['master_port']}",
                f"--bind={cfg['api_bind']}" if rank == 0 else '--bind=127.0.0.1',
                f"--port={cfg['api_port'] if rank == 0 else cfg['worker_port']}",
-               '--model-name=glm53-base', '--require-auth', f"--auth-token={cfg['api_key']}"]
+               '--model-name='+cfg['served_model_name'], '--require-auth', f"--auth-token={cfg['api_key']}"]
     return [*args, cfg['image'], *server]
 
 

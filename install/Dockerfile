@@ -207,6 +207,6 @@ ARG INSTALL_TREE
 RUN test -n "$INSTALL_TREE"
 LABEL org.opencontainers.image.licenses="AGPL-3.0-only" \
       org.opencontainers.image.source="https://github.com/mmluankoko/sparkglm-heretic" \
-      io.onlineheretic.patch-sha256="8c7008d1e925f17be95b78e6be18ef6a3261ebcda429e650b5e953070761c916" \
+      io.onlineheretic.patch-sha256="ce2207fd943747627e1bcbe8b5071e2c21cbe4794a06f0cdac245d38bbfb9a24" \
       io.enntity.sparkglm.install-tree="$INSTALL_TREE"
 ENTRYPOINT ["python3", "/opt/atlas/serve.py"]

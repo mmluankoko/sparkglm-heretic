@@ -3868,7 +3868,7 @@ index 0000000..68f1a08
 +}
 diff --git a/crates/spark-model/src/lora/glm53.rs b/crates/spark-model/src/lora/glm53.rs
 new file mode 100644
-index 0000000..7bd1164
+index 0000000..32b69be
 --- /dev/null
 +++ b/crates/spark-model/src/lora/glm53.rs
 @@ -0,0 +1,324 @@
@@ -4038,8 +4038,8 @@ index 0000000..7bd1164
 +    let adapter = &adapters[0];
 +    let peft = &adapter.peft;
 +    ensure!(
-+        adapter.name == "heretic" && peft.r == 1 && peft.scaling() == 1.0 && !peft.use_rslora,
-+        "only the fixed heretic r1 alpha1 bundle is supported"
++        !adapter.name.is_empty() && peft.r == 1 && peft.scaling() == 1.0 && !peft.use_rslora,
++        "only a named Heretic r1 alpha1 bundle is supported"
 +    );
 +    let mut targets: BTreeMap<Target, [Option<String>; 2]> = BTreeMap::new();
 +    for name in adapter.store.names() {
@@ -5546,10 +5546,10 @@ index 0000000..0b13aca
 +}
 diff --git a/crates/spark-server/src/api/lora_selection.rs b/crates/spark-server/src/api/lora_selection.rs
 new file mode 100644
-index 0000000..3fddd15
+index 0000000..43a0020
 --- /dev/null
 +++ b/crates/spark-server/src/api/lora_selection.rs
-@@ -0,0 +1,78 @@
+@@ -0,0 +1,98 @@
 +// SPDX-License-Identifier: AGPL-3.0-only
 +
 +//! Pure OpenAI model/adapter selection, including an explicit unadapted base.
@@ -5596,7 +5596,7 @@ index 0000000..3fddd15
 +
 +#[cfg(test)]
 +mod tests {
-+    use super::{Selection, select};
++    use super::{Selection, response_model, select};
 +
 +    #[test]
 +    fn fixed_base_and_heretic_routes_are_distinct() {
@@ -5614,6 +5614,26 @@ index 0000000..3fddd15
 +            select("base", &names, Some("missing"), "base", false),
 +            Selection::Named("missing")
 +        );
++    }
++
++    #[test]
++    fn custom_public_names_preserve_routing_and_response_identity() {
++        // The former fixed adapter name is also valid as a custom base ID.
++        for base in ["org/glm-base", "heretic"] {
++            let adapted = "org/glm-abliterated-v3";
++            let names = vec![adapted.to_owned()];
++            assert_eq!(select(base, &names, None, base, false), Selection::Base);
++            assert_eq!(
++                select(base, &names, None, adapted, false),
++                Selection::Named(adapted)
++            );
++            assert_eq!(response_model(base, &names, None, base, false), base);
++            assert_eq!(response_model(base, &names, None, adapted, false), adapted);
++            assert_eq!(
++                response_model(base, &names, Some(adapted), base, false),
++                adapted
++            );
++        }
 +    }
 +
 +    #[test]
@@ -5761,10 +5781,10 @@ index 0000000..9b36291
 +}
 diff --git a/crates/spark-server/src/main_modules/serve_load/lora_dflash_launch.rs b/crates/spark-server/src/main_modules/serve_load/lora_dflash_launch.rs
 new file mode 100644
-index 0000000..a36fc1b
+index 0000000..29d1d5b
 --- /dev/null
 +++ b/crates/spark-server/src/main_modules/serve_load/lora_dflash_launch.rs
-@@ -0,0 +1,200 @@
+@@ -0,0 +1,207 @@
 +// SPDX-License-Identifier: AGPL-3.0-only
 +
 +//! Pure admission boundary for the first single-owner Heretic DFlash launch.
@@ -5794,8 +5814,8 @@ index 0000000..a36fc1b
 +    pub(super) fn validate(&self) -> Result<(), &'static str> {
 +        for (valid, reason) in [
 +            (
-+                self.dual && self.adapter == "heretic",
-+                "requires the fixed GLM TP2/EP2 launch with the sole resident adapter named heretic",
++                self.dual && !self.adapter.is_empty(),
++                "requires the fixed GLM TP2/EP2 launch with one named resident adapter",
 +            ),
 +            (
 +                self.dflash && !self.other_speculation,
@@ -5890,6 +5910,13 @@ index 0000000..a36fc1b
 +    }
 +
 +    #[test]
++    fn custom_adapter_names_are_admitted() {
++        for adapter in ["heretic", "my-glm-heretic", "org/glm-abliterated-v3"] {
++            assert!(DflashLaunch { adapter, ..valid() }.validate().is_ok());
++        }
++    }
++
++    #[test]
 +    fn rejects_every_missing_boundary() {
 +        let good = valid();
 +        for invalid in [
@@ -5898,7 +5925,7 @@ index 0000000..a36fc1b
 +                ..good
 +            },
 +            DflashLaunch {
-+                adapter: "other",
++                adapter: "",
 +                ..good
 +            },
 +            DflashLaunch {

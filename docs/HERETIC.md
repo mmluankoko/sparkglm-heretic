@@ -47,8 +47,9 @@ Atlas importer 在运行时将 F16 转为 BF16，rank 1 补零至 stride 8。投
 O 增量在投影后、TP collective 前执行；routed down 增量在专家混合之前执行；
 shared 增量只加一次。专家 A 随 TP 切分，B 复制，不生成第二份基座。
 
-`glm53-base` 使用 base slot `-2`、identity `0`；`heretic` 使用具名 adapter
-identity。请求身份随 rank 命令传输并绑定 KV/SSM 状态；已有 computed tokens
+默认 `glm53-base` 使用 base slot `-2`、identity `0`；`heretic` 使用具名 adapter
+identity。可通过 `served_model_name` / `served_adapter_name` 自定义对外名称；
+路由与响应使用配置名称，权重结构与数值校验不依赖名称。请求身份随 rank 命令传输并绑定 KV/SSM 状态；已有 computed tokens
 的序列不能改变 identity。这里的热切换指 adapter 常驻后，**不同 API 请求通过
 model 字段选用 base 或 Heretic**，不是在一个生成中的序列内切换。
 

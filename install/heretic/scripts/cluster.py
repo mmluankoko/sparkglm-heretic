@@ -51,6 +51,13 @@ def config(path, profile=DEFAULT_PROFILE):
     cfg.setdefault('namespace', 'sparkglm-heretic')
     if not re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_.-]*', cfg['namespace']):
         raise ValueError('Invalid container namespace')
+    cfg.setdefault('served_model_name', 'glm53-base')
+    cfg.setdefault('served_adapter_name', 'heretic')
+    for key in ('served_model_name', 'served_adapter_name'):
+        if not isinstance(cfg[key], str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._/-]{0,127}', cfg[key]):
+            raise ValueError(f'Invalid {key}')
+    if cfg['served_model_name'] == cfg['served_adapter_name']:
+        raise ValueError('Base and adapter model IDs must differ')
     cfg['prefix'] = cfg['service'] = cfg['namespace']
     cfg['profile'] = json.loads((HERE / f'profiles/{profile}.json').read_text())
     cfg['patch_sha256'] = json.loads((HERE / 'sources.lock.json').read_text())['patch_sha256']

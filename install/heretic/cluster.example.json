@@ -9,6 +9,8 @@
   "adapter": "/srv/adapters/glm53-heretic-v3-peft",
   "model_config_sha256": "41db2811023b40ba4c8f8bbba88bce7dff377af51ecd18b32469a2a07064ebaf",
   "api_key": "REPLACE_WITH_YOUR_LOCAL_API_KEY",
+  "served_model_name": "glm53-base",
+  "served_adapter_name": "heretic",
   "api_bind": "127.0.0.1",
   "api_port": 8002,
   "worker_port": 8896,

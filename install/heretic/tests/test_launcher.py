@@ -53,6 +53,27 @@ class Launcher(unittest.TestCase):
                              'ATLAS_DEBUG_NO_GRAPH=1', '--enable-prefix-caching=false'):
                 self.assertIn(expected, argv)
 
+    def test_custom_public_names_on_both_ranks_and_profiles(self):
+        for profile in ('stock', 'heretic', 'heretic-dflash'):
+            cfg = self.config(profile)
+            cfg.update(served_model_name='org/my-base', served_adapter_name='org/my-heretic')
+            for rank in (0, 1):
+                argv = node.docker_argv(cfg, rank, 'fixture')
+                self.assertIn('--model-name=org/my-base', argv)
+                self.assertEqual('--lora-adapter=org/my-heretic=/adapter' in argv, profile != 'stock')
+                self.assertNotIn('--lora-adapter=heretic=/adapter', argv)
+
+    def test_rejects_invalid_or_colliding_public_names(self):
+        source = json.loads((ROOT / 'cluster.example.json').read_text())
+        for changes in ({'served_model_name': 'same', 'served_adapter_name': 'same'},
+                        {'served_adapter_name': ''}, {'served_adapter_name': 'bad=name'},
+                        {'served_model_name': 'bad name'}, {'served_adapter_name': None}):
+            with self.subTest(changes=changes), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory) / 'config.json'
+                path.write_text(json.dumps(dict(source, **changes)))
+                with self.assertRaises(ValueError):
+                    cluster.config(path)
+
     def test_stop_targets_same_namespace_across_profiles(self):
         prefixes = {self.config(p)['prefix'] for p in ('stock', 'heretic', 'heretic-dflash')}
         self.assertEqual(len(prefixes), 1)

@@ -1,0 +1,30 @@
+{
+  "name": "math-completions-02-heretic",
+  "family": "math-completions",
+  "kind": "completion",
+  "model": "heretic",
+  "passed": true,
+  "elapsed_seconds": 0.9628930749995561,
+  "output": {
+    "content": "42",
+    "reasoning_content": "",
+    "usage": {
+      "prompt_tokens": 16,
+      "completion_tokens": 32,
+      "total_tokens": 48,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 30,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 303.62310599999995,
+      "response_token/s": 47.169316014227306
+    },
+    "finish_reason": "stop"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "math-completions-04-heretic",
+  "endpoint": "/v1/completions",
+  "started_at": "2026-10-19T04:02:01.565279+00:00",
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "application/json"
+    ],
+    [
+      "x-request-id",
+      "req_d57f1702-a26d-4bf4-b20c-11b14ab09f44"
+    ],
+    [
+      "openai-processing-ms",
+      "964"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Mon, 19 Oct 2026 04:02:02 GMT"
+    ]
+  ],
+  "read_timings": [
+    {
+      "received_bytes": 542,
+      "seconds": 0.9654232869997941
+    }
+  ],
+  "error": null,
+  "headers_seconds": 0.9652534489996469,
+  "content_type": "application/json",
+  "elapsed_seconds": 0.9655516539996825,
+  "response_bytes": 542,
+  "response_sha256": "ddcf13035d1d22d2dc1855827a28b43f07de94e52ca7268a2d12d1b2c9c75a4e",
+  "first_byte_seconds": 0.9654232869997941
+}

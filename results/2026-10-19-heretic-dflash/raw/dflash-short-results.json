@@ -1,0 +1,398 @@
+{
+  "schema": "onlineheretic.dflash-empirical-short-result/v1",
+  "recorded_at_utc": "2026-10-19T04:05:07.726601+00:00",
+  "started_at": "2026-10-19T04:01:54.933305+00:00",
+  "finished_at": "2026-10-19T04:02:43.366835+00:00",
+  "group_elapsed_seconds": 48.43353,
+  "profile": "heretic-dflash",
+  "runtime_image": "sha256:46eab8701e600bfd5827c096e24055f52b86f2d41749a0c3a3e6e85ede5975bc",
+  "profile_sha256": "c4ae0d4d7fd9eb889d95e94e8073e4a1d6097bf85f118dd3950a2f14194f1372",
+  "runtime_source_unchanged": true,
+  "frozen_files_unchanged": {
+    "Dockerfile": true,
+    "build.sh": true,
+    "scripts/cluster.py": true,
+    "scripts/node.py": true,
+    "profiles/heretic-dflash.json": true,
+    "evidence/source-lock-dflash-candidate.json": true
+  },
+  "gpu_math_oracle": "skipped by explicit user instruction; not executed",
+  "api_passed": true,
+  "api_request_count": 24,
+  "api_pass_count": 24,
+  "reproducibility_check_count": 9,
+  "reproducibility_check_pass_count": 9,
+  "legacy_completions_stop_checks": 5,
+  "runtime_audit_passed": true,
+  "cross_rank_target_calls": [
+    289,
+    289
+  ],
+  "both_models_exercised_dflash": true,
+  "models": {
+    "glm53-base": {
+      "api_requests": 15,
+      "first_request_ttft_ms": 269.546254,
+      "subsequent_same_27_token_math_prompt_ttft_ms": {
+        "n": 5,
+        "mean": 271.9595162,
+        "median": 273.636201,
+        "min": 261.62516899999997,
+        "max": 281.320314
+      },
+      "decode_256": {
+        "requests": 4,
+        "server_reported_tokens_per_second": {
+          "n": 4,
+          "mean": 74.96335682509448,
+          "median": 75.03930674909043,
+          "min": 74.47026470842836,
+          "max": 75.30454909376866
+        },
+        "server_ttft_ms": {
+          "n": 4,
+          "mean": 364.76404225,
+          "median": 364.4243775,
+          "min": 357.009902,
+          "max": 373.197512
+        },
+        "total_request_seconds": {
+          "n": 4,
+          "mean": 3.7700442785001087,
+          "median": 3.7685931030000575,
+          "min": 3.754961292000189,
+          "max": 3.7880296160001308
+        },
+        "observed_end_to_end_tokens_per_second": 67.90371175742482,
+        "completion_tokens": [
+          256,
+          256,
+          256,
+          256
+        ],
+        "reasoning_tokens": [
+          33,
+          33,
+          33,
+          33
+        ]
+      },
+      "prefill_4336": {
+        "requests": 2,
+        "server_ttft_ms": {
+          "n": 2,
+          "mean": 3302.0853585,
+          "median": 3302.0853585,
+          "min": 3275.625171,
+          "max": 3328.545546
+        },
+        "ordered_ttft_ms": [
+          3328.545546,
+          3275.625171
+        ],
+        "total_request_seconds": [
+          3.592607415999737,
+          3.535905491000449
+        ]
+      },
+      "dflash": {
+        "target_widths": {
+          "8": 138,
+          "7": 2,
+          "3": 39,
+          "5": 3,
+          "4": 17,
+          "6": 1
+        },
+        "verified_blocks": 185,
+        "accepted_drafts": 913,
+        "offered_drafts": 1028,
+        "acceptance_classes": {
+          "partial": 30,
+          "full": 143,
+          "zero": 12
+        },
+        "acceptance_sources": {
+          "step_timing": 185
+        },
+        "draft_acceptance_ratio": 0.8881322957198443,
+        "missing_acceptance_classes": [],
+        "target_blocks_without_acceptance_record": 15
+      },
+      "timings_by_target_rows": {
+        "3": {
+          "verify_ms": {
+            "n": 39,
+            "mean": 56.57948717948718,
+            "median": 56.9,
+            "min": 52.8,
+            "max": 62.4
+          },
+          "propose_ms": {
+            "n": 39,
+            "mean": 4.4282051282051285,
+            "median": 4.4,
+            "min": 4.3,
+            "max": 5.3
+          }
+        },
+        "4": {
+          "verify_ms": {
+            "n": 15,
+            "mean": 63.9,
+            "median": 62.7,
+            "min": 60.5,
+            "max": 73.1
+          },
+          "propose_ms": {
+            "n": 15,
+            "mean": 4.5200000000000005,
+            "median": 4.4,
+            "min": 4.4,
+            "max": 5.4
+          }
+        },
+        "5": {
+          "verify_ms": {
+            "n": 3,
+            "mean": 64.63333333333334,
+            "median": 64.7,
+            "min": 64.4,
+            "max": 64.8
+          },
+          "propose_ms": {
+            "n": 3,
+            "mean": 4.4,
+            "median": 4.4,
+            "min": 4.4,
+            "max": 4.4
+          }
+        },
+        "6": {
+          "verify_ms": {
+            "n": 1,
+            "mean": 88.1,
+            "median": 88.1,
+            "min": 88.1,
+            "max": 88.1
+          },
+          "propose_ms": {
+            "n": 1,
+            "mean": 4.8,
+            "median": 4.8,
+            "min": 4.8,
+            "max": 4.8
+          }
+        },
+        "7": {
+          "verify_ms": {
+            "n": 1,
+            "mean": 76.6,
+            "median": 76.6,
+            "min": 76.6,
+            "max": 76.6
+          },
+          "propose_ms": {
+            "n": 1,
+            "mean": 4.4,
+            "median": 4.4,
+            "min": 4.4,
+            "max": 4.4
+          }
+        },
+        "8": {
+          "verify_ms": {
+            "n": 126,
+            "mean": 85.31666666666666,
+            "median": 84.7,
+            "min": 76.9,
+            "max": 99.7
+          },
+          "propose_ms": {
+            "n": 126,
+            "mean": 4.7404761904761905,
+            "median": 4.5,
+            "min": 4.3,
+            "max": 14.7
+          }
+        }
+      }
+    },
+    "heretic": {
+      "api_requests": 9,
+      "first_request_ttft_ms": 349.31596399999995,
+      "subsequent_same_27_token_math_prompt_ttft_ms": {
+        "n": 3,
+        "mean": 350.0807096666667,
+        "median": 349.473537,
+        "min": 349.194727,
+        "max": 351.573865
+      },
+      "decode_256": {
+        "requests": 2,
+        "server_reported_tokens_per_second": {
+          "n": 2,
+          "mean": 77.59248451944578,
+          "median": 77.59248451944578,
+          "min": 76.81754845092222,
+          "max": 78.36742058796935
+        },
+        "server_ttft_ms": {
+          "n": 2,
+          "mean": 477.156743,
+          "median": 477.156743,
+          "min": 469.843522,
+          "max": 484.46996399999995
+        },
+        "total_request_seconds": {
+          "n": 2,
+          "mean": 3.767919002000326,
+          "median": 3.767919002000326,
+          "min": 3.7433815560007133,
+          "max": 3.792456447999939
+        },
+        "observed_end_to_end_tokens_per_second": 67.94201251780991,
+        "completion_tokens": [
+          256,
+          256
+        ],
+        "reasoning_tokens": [
+          16,
+          16
+        ]
+      },
+      "prefill_4336": {
+        "requests": 1,
+        "server_ttft_ms": {
+          "n": 1,
+          "mean": 9991.466504,
+          "median": 9991.466504,
+          "min": 9991.466504,
+          "max": 9991.466504
+        },
+        "ordered_ttft_ms": [
+          9991.466504
+        ],
+        "total_request_seconds": [
+          10.20656645300005
+        ]
+      },
+      "dflash": {
+        "target_widths": {
+          "8": 75,
+          "5": 4,
+          "3": 8,
+          "4": 1,
+          "6": 1
+        },
+        "verified_blocks": 80,
+        "accepted_drafts": 489,
+        "offered_drafts": 507,
+        "acceptance_classes": {
+          "partial": 3,
+          "full": 76,
+          "zero": 1
+        },
+        "acceptance_sources": {
+          "step_timing": 80
+        },
+        "draft_acceptance_ratio": 0.9644970414201184,
+        "missing_acceptance_classes": [],
+        "target_blocks_without_acceptance_record": 9
+      },
+      "timings_by_target_rows": {
+        "3": {
+          "verify_ms": {
+            "n": 7,
+            "mean": 61.457142857142856,
+            "median": 61.7,
+            "min": 59.2,
+            "max": 63.2
+          },
+          "propose_ms": {
+            "n": 7,
+            "mean": 4.414285714285715,
+            "median": 4.3,
+            "min": 4.2,
+            "max": 5.1
+          }
+        },
+        "4": {
+          "verify_ms": {
+            "n": 1,
+            "mean": 80.1,
+            "median": 80.1,
+            "min": 80.1,
+            "max": 80.1
+          },
+          "propose_ms": {
+            "n": 1,
+            "mean": 5.1,
+            "median": 5.1,
+            "min": 5.1,
+            "max": 5.1
+          }
+        },
+        "5": {
+          "verify_ms": {
+            "n": 4,
+            "mean": 71.6,
+            "median": 71.65,
+            "min": 70.5,
+            "max": 72.6
+          },
+          "propose_ms": {
+            "n": 4,
+            "mean": 4.325,
+            "median": 4.3,
+            "min": 4.3,
+            "max": 4.4
+          }
+        },
+        "6": {
+          "verify_ms": {
+            "n": 1,
+            "mean": 82.7,
+            "median": 82.7,
+            "min": 82.7,
+            "max": 82.7
+          },
+          "propose_ms": {
+            "n": 1,
+            "mean": 4.4,
+            "median": 4.4,
+            "min": 4.4,
+            "max": 4.4
+          }
+        },
+        "8": {
+          "verify_ms": {
+            "n": 67,
+            "mean": 94.48507462686567,
+            "median": 94.3,
+            "min": 86.9,
+            "max": 107.0
+          },
+          "propose_ms": {
+            "n": 67,
+            "mean": 4.7567164179104475,
+            "median": 4.5,
+            "min": 4.3,
+            "max": 14.4
+          }
+        }
+      }
+    }
+  },
+  "service_left_running": true,
+  "optional_long_group_executed": false,
+  "limitations": [
+    "New GPU kernel mathematical oracles skipped by explicit user instruction.",
+    "Acceptance ratios use INFO STEP_TIMING nonterminal steps; all 24 terminal target blocks lack acceptance records.",
+    "Natural zero/partial/full acceptance does not prove controlled numerical rollback or K1 parity.",
+    "Decode throughput is server-reported; end-to-end throughput is reported separately. Short output and reasoning composition differ between model names.",
+    "Heretic prefill has one sample; no repeated warm-prefill conclusion.",
+    "No same-machine original baseline, no original-speed parity claim.",
+    "No >32k/200k/384k context, concurrency4, prefix, KV-shard, SP or multiowner validation."
+  ]
+}

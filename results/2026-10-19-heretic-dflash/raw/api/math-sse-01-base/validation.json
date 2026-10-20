@@ -1,0 +1,33 @@
+{
+  "name": "math-sse-01-base",
+  "family": "math-sse",
+  "kind": "chat",
+  "model": "glm53-base",
+  "passed": true,
+  "elapsed_seconds": 0.3458495730001232,
+  "output": {
+    "content": "42",
+    "reasoning_content": "42",
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 4,
+      "total_tokens": 31,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 2,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 261.62516899999997,
+      "response_token/s": 37.2941614026165
+    },
+    "finish_reason": "stop",
+    "first_content_end_offset": 524,
+    "event_count": 6,
+    "first_content_seconds": 0.2626895909997984
+  }
+}

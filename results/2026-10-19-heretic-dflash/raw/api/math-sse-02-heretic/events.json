@@ -1,0 +1,32 @@
+[
+  {
+    "event": "message",
+    "data": "{\"id\":\"chatcmpl-d13ceff2-dce8-43c5-a1ea-87d04ce7bb79\",\"object\":\"chat.completion.chunk\",\"created\":1792382517,\"model\":\"heretic\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null,\"logprobs\":null}]}",
+    "end_offset": 256
+  },
+  {
+    "event": "message",
+    "data": "{\"id\":\"chatcmpl-d13ceff2-dce8-43c5-a1ea-87d04ce7bb79\",\"object\":\"chat.completion.chunk\",\"created\":1792382517,\"model\":\"heretic\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"delta\":{\"reasoning_content\":\"42\"},\"finish_reason\":null,\"logprobs\":null}]}",
+    "end_offset": 518
+  },
+  {
+    "event": "message",
+    "data": "{\"id\":\"chatcmpl-d13ceff2-dce8-43c5-a1ea-87d04ce7bb79\",\"object\":\"chat.completion.chunk\",\"created\":1792382517,\"model\":\"heretic\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"42\"},\"finish_reason\":null,\"logprobs\":null}]}",
+    "end_offset": 770
+  },
+  {
+    "event": "message",
+    "data": "{\"id\":\"chatcmpl-d13ceff2-dce8-43c5-a1ea-87d04ce7bb79\",\"object\":\"chat.completion.chunk\",\"created\":1792382517,\"model\":\"heretic\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[],\"usage\":{\"prompt_tokens\":27,\"completion_tokens\":4,\"total_tokens\":31,\"prompt_tokens_details\":{\"cached_tokens\":0,\"audio_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"audio_tokens\":0,\"accepted_prediction_tokens\":2,\"rejected_prediction_tokens\":0},\"time_to_first_token_ms\":349.473537,\"response_token/s\":32.69768168205245}}",
+    "end_offset": 1282
+  },
+  {
+    "event": "message",
+    "data": "{\"id\":\"chatcmpl-d13ceff2-dce8-43c5-a1ea-87d04ce7bb79\",\"object\":\"chat.completion.chunk\",\"created\":1792382517,\"model\":\"heretic\",\"system_fingerprint\":\"fp_atlas\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\",\"logprobs\":null}]}",
+    "end_offset": 1522
+  },
+  {
+    "event": "message",
+    "data": "[DONE]",
+    "end_offset": 1536
+  }
+]

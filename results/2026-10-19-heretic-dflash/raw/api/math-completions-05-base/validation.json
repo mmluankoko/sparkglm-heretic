@@ -1,0 +1,30 @@
+{
+  "name": "math-completions-05-base",
+  "family": "math-completions",
+  "kind": "completion",
+  "model": "glm53-base",
+  "passed": true,
+  "elapsed_seconds": 0.857302534000155,
+  "output": {
+    "content": "42",
+    "reasoning_content": "",
+    "usage": {
+      "prompt_tokens": 16,
+      "completion_tokens": 32,
+      "total_tokens": 48,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 30,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 225.465797,
+      "response_token/s": 49.22294523018935
+    },
+    "finish_reason": "stop"
+  }
+}

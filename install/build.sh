@@ -11,7 +11,7 @@ set -euo pipefail
 here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 product=$(cd "$here/.." && pwd)
 tree=$(git -C "$product" rev-parse HEAD:install)
-image=${SPARKGLM_IMAGE_REPO:-ghcr.io/enntity/atlas-sparkglm}:${tree:0:12}
+image=${SPARKGLM_IMAGE_REPO:-sparkglm-heretic}:${tree:0:12}
 [[ ${1:-} == --tag ]] && { echo "$image"; exit 0; }
 [[ $# == 0 ]] || { echo 'usage: build.sh [--tag]' >&2; exit 2; }
 [[ -z $(git -C "$product" status --porcelain --untracked-files=all -- install) ]] || {
@@ -29,6 +29,7 @@ GIT_LFS_SKIP_SMUDGE=1 git -C "$context/engine" -c advice.detachedHead=false chec
    $(git -C "$context/engine" rev-parse 'HEAD^{tree}') == "$pin_tree" ]] || {
   echo "fetched engine is not the pinned Enntity/atlas tree $pin_tree" >&2; exit 1; }
 git -C "$product" archive HEAD install | tar -x -C "$context"
+python3 "$context/install/heretic/apply_patch.py" "$context/engine" >&2
 cp "$here/dockerignore" "$context/.dockerignore"
 
 # Parallel compile jobs: ATLAS_BUILD_JOBS, else one per ~10 GiB of free memory

@@ -1,0 +1,917 @@
+{
+  "schema": "onlineheretic.dual-api-validation/v1",
+  "started_at": "2026-10-19T04:01:54.933305+00:00",
+  "mode": "dual-model",
+  "profile": "quick",
+  "config": {
+    "url": "http://127.0.0.1:8002",
+    "out_dir": "evidence/dflash-api-short",
+    "stock": false,
+    "base_model": null,
+    "adapter_model": "heretic",
+    "long": false,
+    "long_prefill": true,
+    "decode_tokens": 256,
+    "min_decode_tokens": 256,
+    "prefill_lines": 256,
+    "chunk_threshold": 2048,
+    "seed": 42,
+    "timeout": 600
+  },
+  "results": [
+    {
+      "name": "math-chat-01-base",
+      "family": "math-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.378285705000053,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 269.546254,
+          "response_token/s": 35.84581296350204
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-chat-02-heretic",
+      "family": "math-chat",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 0.44936820800012356,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 349.31596399999995,
+          "response_token/s": 30.703268497002448
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-chat-03-base",
+      "family": "math-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.34988835900003323,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 266.17944,
+          "response_token/s": 36.680910230918435
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-chat-04-heretic",
+      "family": "math-chat",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 0.44660272000055556,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 351.573865,
+          "response_token/s": 32.27006377500434
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-chat-05-base",
+      "family": "math-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.3637659830001212,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 281.320314,
+          "response_token/s": 37.396563442802425
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-sse-01-base",
+      "family": "math-sse",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.3458495730001232,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 261.62516899999997,
+          "response_token/s": 37.2941614026165
+        },
+        "finish_reason": "stop",
+        "first_content_end_offset": 524,
+        "event_count": 6,
+        "first_content_seconds": 0.2626895909997984
+      }
+    },
+    {
+      "name": "math-sse-02-heretic",
+      "family": "math-sse",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 0.4456611650002742,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 349.473537,
+          "response_token/s": 32.69768168205245
+        },
+        "finish_reason": "stop",
+        "first_content_end_offset": 518,
+        "event_count": 6,
+        "first_content_seconds": 0.3512406390000251
+      }
+    },
+    {
+      "name": "math-sse-03-base",
+      "family": "math-sse",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.35803905200009467,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 273.636201,
+          "response_token/s": 37.47456320336164
+        },
+        "finish_reason": "stop",
+        "first_content_end_offset": 524,
+        "event_count": 6,
+        "first_content_seconds": 0.2755044710002039
+      }
+    },
+    {
+      "name": "math-sse-04-heretic",
+      "family": "math-sse",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 0.44697427499977493,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 349.194727,
+          "response_token/s": 32.11058783697172
+        },
+        "finish_reason": "stop",
+        "first_content_end_offset": 518,
+        "event_count": 6,
+        "first_content_seconds": 0.35080538200054434
+      }
+    },
+    {
+      "name": "math-sse-05-base",
+      "family": "math-sse",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.3646730669997851,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 27,
+          "completion_tokens": 4,
+          "total_tokens": 31,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 277.03645700000004,
+          "response_token/s": 36.05024697843954
+        },
+        "finish_reason": "stop",
+        "first_content_end_offset": 524,
+        "event_count": 6,
+        "first_content_seconds": 0.27855679399999644
+      }
+    },
+    {
+      "name": "math-completions-01-base",
+      "family": "math-completions",
+      "kind": "completion",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.8319923139997627,
+      "output": {
+        "content": "42",
+        "reasoning_content": "",
+        "usage": {
+          "prompt_tokens": 16,
+          "completion_tokens": 32,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 29,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 221.745764,
+          "response_token/s": 50.98292480540261
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-completions-02-heretic",
+      "family": "math-completions",
+      "kind": "completion",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 0.9628930749995561,
+      "output": {
+        "content": "42",
+        "reasoning_content": "",
+        "usage": {
+          "prompt_tokens": 16,
+          "completion_tokens": 32,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 30,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 303.62310599999995,
+          "response_token/s": 47.169316014227306
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-completions-03-base",
+      "family": "math-completions",
+      "kind": "completion",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.8546105639998132,
+      "output": {
+        "content": "42",
+        "reasoning_content": "",
+        "usage": {
+          "prompt_tokens": 16,
+          "completion_tokens": 32,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 30,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 235.68542,
+          "response_token/s": 50.28948435996793
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-completions-04-heretic",
+      "family": "math-completions",
+      "kind": "completion",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 0.9655516539996825,
+      "output": {
+        "content": "42",
+        "reasoning_content": "",
+        "usage": {
+          "prompt_tokens": 16,
+          "completion_tokens": 32,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 30,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 302.567953,
+          "response_token/s": 46.91291279816419
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "math-completions-05-base",
+      "family": "math-completions",
+      "kind": "completion",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 0.857302534000155,
+      "output": {
+        "content": "42",
+        "reasoning_content": "",
+        "usage": {
+          "prompt_tokens": 16,
+          "completion_tokens": 32,
+          "total_tokens": 48,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 30,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 225.465797,
+          "response_token/s": 49.22294523018935
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "decode-chat-01-base",
+      "family": "decode-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 3.7733177190002607,
+      "output": {
+        "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111",
+        "reasoning_content": "The user wants all 1000 numbers. That's very long but they explicitly asked. I should comply... it's ~4000 characters. I'll do it.",
+        "usage": {
+          "prompt_tokens": 49,
+          "completion_tokens": 256,
+          "total_tokens": 305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 33,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 218,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 369.79884000000004,
+          "response_token/s": 74.98427670139787
+        },
+        "finish_reason": "length"
+      }
+    },
+    {
+      "name": "decode-chat-02-heretic",
+      "family": "decode-chat",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 3.792456447999939,
+      "output": {
+        "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,",
+        "reasoning_content": "Need to list 1..1000 fully. That's long but doable.",
+        "usage": {
+          "prompt_tokens": 49,
+          "completion_tokens": 256,
+          "total_tokens": 305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 16,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 228,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 469.843522,
+          "response_token/s": 76.81754845092222
+        },
+        "finish_reason": "length"
+      }
+    },
+    {
+      "name": "decode-chat-03-base",
+      "family": "decode-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 3.754961292000189,
+      "output": {
+        "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111",
+        "reasoning_content": "The user wants all 1000 numbers. That's very long but they explicitly asked. I should comply... it's ~4000 characters. I'll do it.",
+        "usage": {
+          "prompt_tokens": 49,
+          "completion_tokens": 256,
+          "total_tokens": 305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 33,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 218,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 357.009902,
+          "response_token/s": 75.094336796783
+        },
+        "finish_reason": "length"
+      }
+    },
+    {
+      "name": "decode-sse-01-base",
+      "family": "decode-sse",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 3.763868486999854,
+      "output": {
+        "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111",
+        "reasoning_content": "The user wants all 1000 numbers. That's very long but they explicitly asked. I should comply... it's ~4000 characters. I'll do it.",
+        "usage": {
+          "prompt_tokens": 49,
+          "completion_tokens": 256,
+          "total_tokens": 305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 33,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 218,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 373.197512,
+          "response_token/s": 75.30454909376866
+        },
+        "finish_reason": "length",
+        "first_content_end_offset": 525,
+        "event_count": 259,
+        "first_content_seconds": 0.3745886349997818
+      }
+    },
+    {
+      "name": "decode-sse-02-heretic",
+      "family": "decode-sse",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 3.7433815560007133,
+      "output": {
+        "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,",
+        "reasoning_content": "Need to list 1..1000 fully. That's long but doable.",
+        "usage": {
+          "prompt_tokens": 49,
+          "completion_tokens": 256,
+          "total_tokens": 305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 16,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 229,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 484.46996399999995,
+          "response_token/s": 78.36742058796935
+        },
+        "finish_reason": "length",
+        "first_content_end_offset": 520,
+        "event_count": 259,
+        "first_content_seconds": 0.4865766800003257
+      }
+    },
+    {
+      "name": "decode-sse-03-base",
+      "family": "decode-sse",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 3.7880296160001308,
+      "output": {
+        "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111",
+        "reasoning_content": "The user wants all 1000 numbers. That's very long but they explicitly asked. I should comply... it's ~4000 characters. I'll do it.",
+        "usage": {
+          "prompt_tokens": 49,
+          "completion_tokens": 256,
+          "total_tokens": 305,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 33,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 218,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 359.049915,
+          "response_token/s": 74.47026470842836
+        },
+        "finish_reason": "length",
+        "first_content_end_offset": 525,
+        "event_count": 259,
+        "first_content_seconds": 0.3607864420000624
+      }
+    },
+    {
+      "name": "prefill-chat-01-base",
+      "family": "prefill-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 3.592607415999737,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 4336,
+          "completion_tokens": 4,
+          "total_tokens": 4340,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 3328.545546,
+          "response_token/s": 11.777622932570793
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "prefill-chat-02-heretic",
+      "family": "prefill-chat",
+      "kind": "chat",
+      "model": "heretic",
+      "passed": true,
+      "elapsed_seconds": 10.20656645300005,
+      "output": {
+        "content": "42",
+        "reasoning_content": "",
+        "usage": {
+          "prompt_tokens": 4336,
+          "completion_tokens": 3,
+          "total_tokens": 4339,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 1,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 9991.466504,
+          "response_token/s": 9.72322447734642
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "name": "prefill-chat-03-base",
+      "family": "prefill-chat",
+      "kind": "chat",
+      "model": "glm53-base",
+      "passed": true,
+      "elapsed_seconds": 3.535905491000449,
+      "output": {
+        "content": "42",
+        "reasoning_content": "42",
+        "usage": {
+          "prompt_tokens": 4336,
+          "completion_tokens": 4,
+          "total_tokens": 4340,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 2,
+            "rejected_prediction_tokens": 0
+          },
+          "time_to_first_token_ms": 3275.625171,
+          "response_token/s": 11.871630962215514
+        },
+        "finish_reason": "stop"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "family": "decode-chat",
+      "model": "glm53-base",
+      "passed": true,
+      "check": "base_output_stable_across_switches",
+      "requests": [
+        "decode-chat-01-base",
+        "decode-chat-03-base"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "decode-sse",
+      "model": "glm53-base",
+      "passed": true,
+      "check": "base_output_stable_across_switches",
+      "requests": [
+        "decode-sse-01-base",
+        "decode-sse-03-base"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "math-chat",
+      "model": "glm53-base",
+      "passed": true,
+      "check": "base_output_stable_across_switches",
+      "requests": [
+        "math-chat-01-base",
+        "math-chat-03-base",
+        "math-chat-05-base"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "math-chat",
+      "model": "heretic",
+      "passed": true,
+      "check": "adapter_repeat_stable",
+      "requests": [
+        "math-chat-02-heretic",
+        "math-chat-04-heretic"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "math-completions",
+      "model": "glm53-base",
+      "passed": true,
+      "check": "base_output_stable_across_switches",
+      "requests": [
+        "math-completions-01-base",
+        "math-completions-03-base",
+        "math-completions-05-base"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "math-completions",
+      "model": "heretic",
+      "passed": true,
+      "check": "adapter_repeat_stable",
+      "requests": [
+        "math-completions-02-heretic",
+        "math-completions-04-heretic"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "math-sse",
+      "model": "glm53-base",
+      "passed": true,
+      "check": "base_output_stable_across_switches",
+      "requests": [
+        "math-sse-01-base",
+        "math-sse-03-base",
+        "math-sse-05-base"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "math-sse",
+      "model": "heretic",
+      "passed": true,
+      "check": "adapter_repeat_stable",
+      "requests": [
+        "math-sse-02-heretic",
+        "math-sse-04-heretic"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    },
+    {
+      "family": "prefill-chat",
+      "model": "glm53-base",
+      "passed": true,
+      "check": "base_output_stable_across_switches",
+      "requests": [
+        "prefill-chat-01-base",
+        "prefill-chat-03-base"
+      ],
+      "note": "A mismatch is a reproducibility/possible contamination failure; text alone cannot identify its cause."
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "limitations": [
+    "Text equality or divergence does not prove adapter installation or GPU numerical correctness.",
+    "Prefill usage above the configured chunk size is a coverage candidate; worker logs must confirm actual chunk scheduling."
+  ],
+  "models": {
+    "advertised_models": [
+      "heretic",
+      "glm53-base"
+    ],
+    "base_model": "glm53-base"
+  },
+  "cross_model_observations": [
+    {
+      "family": "decode-chat",
+      "same_text": false,
+      "note": "Informational only; matching outputs are not an adapter failure."
+    },
+    {
+      "family": "decode-sse",
+      "same_text": false,
+      "note": "Informational only; matching outputs are not an adapter failure."
+    },
+    {
+      "family": "math-chat",
+      "same_text": true,
+      "note": "Informational only; matching outputs are not an adapter failure."
+    },
+    {
+      "family": "math-completions",
+      "same_text": true,
+      "note": "Informational only; matching outputs are not an adapter failure."
+    },
+    {
+      "family": "math-sse",
+      "same_text": true,
+      "note": "Informational only; matching outputs are not an adapter failure."
+    },
+    {
+      "family": "prefill-chat",
+      "same_text": true,
+      "note": "Informational only; matching outputs are not an adapter failure."
+    }
+  ],
+  "finished_at": "2026-10-19T04:02:43.366835+00:00"
+}

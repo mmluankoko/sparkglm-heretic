@@ -16,3 +16,16 @@ bench/qprobe-*.jsonl
 *.so
 *.key
 *.pem
+*.gguf
+*.pt
+*.pth
+*.ckpt
+*.safetensors.*
+*.gguf.*
+*.partial
+/artifacts/
+/weights/
+/adapters/
+/heretic.local.json
+/install/heretic/runtime/
+/install/heretic/evidence/

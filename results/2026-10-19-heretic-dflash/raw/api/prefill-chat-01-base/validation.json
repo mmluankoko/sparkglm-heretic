@@ -1,0 +1,30 @@
+{
+  "name": "prefill-chat-01-base",
+  "family": "prefill-chat",
+  "kind": "chat",
+  "model": "glm53-base",
+  "passed": true,
+  "elapsed_seconds": 3.592607415999737,
+  "output": {
+    "content": "42",
+    "reasoning_content": "42",
+    "usage": {
+      "prompt_tokens": 4336,
+      "completion_tokens": 4,
+      "total_tokens": 4340,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 2,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 3328.545546,
+      "response_token/s": 11.777622932570793
+    },
+    "finish_reason": "stop"
+  }
+}

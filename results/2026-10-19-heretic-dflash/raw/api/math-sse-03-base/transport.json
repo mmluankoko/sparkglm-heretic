@@ -1,0 +1,105 @@
+{
+  "name": "math-sse-03-base",
+  "endpoint": "/v1/chat/completions",
+  "started_at": "2026-10-19T04:01:57.738433+00:00",
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "text/event-stream"
+    ],
+    [
+      "cache-control",
+      "no-cache"
+    ],
+    [
+      "x-request-id",
+      "req_6ddb68be-5ec0-4eb9-a743-d418135e4185"
+    ],
+    [
+      "openai-processing-ms",
+      "0"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Mon, 19 Oct 2026 04:01:57 GMT"
+    ]
+  ],
+  "read_timings": [
+    {
+      "received_bytes": 259,
+      "seconds": 0.0013811220005663927
+    },
+    {
+      "received_bytes": 524,
+      "seconds": 0.2755044710002039
+    },
+    {
+      "received_bytes": 779,
+      "seconds": 0.35548464600014995
+    },
+    {
+      "received_bytes": 1294,
+      "seconds": 0.3555285330003244
+    },
+    {
+      "received_bytes": 1537,
+      "seconds": 0.3555356209999445
+    },
+    {
+      "received_bytes": 1551,
+      "seconds": 0.3578656460003913
+    }
+  ],
+  "error": null,
+  "headers_seconds": 0.001300386999901093,
+  "content_type": "text/event-stream",
+  "elapsed_seconds": 0.35803905200009467,
+  "response_bytes": 1551,
+  "response_sha256": "84893bafa49dc426f05afa130d0a97135de48117474c19be970da95d77136fce",
+  "first_byte_seconds": 0.0013811220005663927
+}

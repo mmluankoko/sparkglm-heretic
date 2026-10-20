@@ -1,0 +1,246 @@
+{
+  "checked_at_utc": "2026-10-19T04:04:23.871250+00:00",
+  "checks": {
+    "same_order_all_24_request_identities": true,
+    "identity_set_exact": true,
+    "all_target_calls_match_across_ranks": true,
+    "no_rank_fatal_errors": true,
+    "both_rank_running": true
+  },
+  "passed": true,
+  "rank0_request_identities": [
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    }
+  ],
+  "rank1_request_identities": [
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": -2,
+      "id": 0
+    },
+    {
+      "slot": 0,
+      "id": 12003015800042089565
+    },
+    {
+      "slot": -2,
+      "id": 0
+    }
+  ],
+  "target_call_count_per_rank": [
+    289,
+    289
+  ],
+  "fatal_errors_per_rank": [
+    [],
+    []
+  ],
+  "actual_prefill_log_evidence": [
+    "2026-10-19T03:57:18.511285106Z 2026-10-19T03:57:18.511116Z  INFO spark::main_modules::serve_phases::preflight::gpu_init: GDN chunked prefill reserve: 80 MB (chunk_size=2049, max_seq_len=200000)",
+    "2026-10-19T04:01:54.976863359Z 2026-10-19T04:01:54.976821Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:55.333408483Z 2026-10-19T04:01:55.333273Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:55.782840850Z 2026-10-19T04:01:55.782826Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:56.133488434Z 2026-10-19T04:01:56.133396Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:56.581039144Z 2026-10-19T04:01:56.580821Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:56.945356993Z 2026-10-19T04:01:56.945121Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:57.293162210Z 2026-10-19T04:01:57.292936Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:57.739738677Z 2026-10-19T04:01:57.739663Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:58.099267426Z 2026-10-19T04:01:58.099043Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:58.547605368Z 2026-10-19T04:01:58.547402Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 27 prompt tokens, chunk_size=27, max_tokens=32",
+    "2026-10-19T04:01:58.913176842Z 2026-10-19T04:01:58.912910Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 16 prompt tokens, chunk_size=16, max_tokens=32",
+    "2026-10-19T04:01:59.746348136Z 2026-10-19T04:01:59.746035Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 16 prompt tokens, chunk_size=16, max_tokens=32",
+    "2026-10-19T04:02:00.710582285Z 2026-10-19T04:02:00.710328Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 16 prompt tokens, chunk_size=16, max_tokens=32",
+    "2026-10-19T04:02:01.566471684Z 2026-10-19T04:02:01.566193Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 16 prompt tokens, chunk_size=16, max_tokens=32",
+    "2026-10-19T04:02:02.533002065Z 2026-10-19T04:02:02.532971Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 16 prompt tokens, chunk_size=16, max_tokens=32",
+    "2026-10-19T04:02:03.392295907Z 2026-10-19T04:02:03.392137Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 49 prompt tokens, chunk_size=49, max_tokens=256",
+    "2026-10-19T04:02:07.167133291Z 2026-10-19T04:02:07.166866Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 49 prompt tokens, chunk_size=49, max_tokens=256",
+    "2026-10-19T04:02:10.960384547Z 2026-10-19T04:02:10.960239Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 49 prompt tokens, chunk_size=49, max_tokens=256",
+    "2026-10-19T04:02:14.716501219Z 2026-10-19T04:02:14.716257Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 49 prompt tokens, chunk_size=49, max_tokens=256",
+    "2026-10-19T04:02:18.486325007Z 2026-10-19T04:02:18.486117Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 49 prompt tokens, chunk_size=49, max_tokens=256",
+    "2026-10-19T04:02:22.234904272Z 2026-10-19T04:02:22.234619Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 49 prompt tokens, chunk_size=49, max_tokens=256",
+    "2026-10-19T04:02:26.034905755Z 2026-10-19T04:02:26.034767Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 4336 prompt tokens, chunk_size=2049, max_tokens=32",
+    "2026-10-19T04:02:29.629265251Z 2026-10-19T04:02:29.629233Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 4336 prompt tokens, chunk_size=2049, max_tokens=32",
+    "2026-10-19T04:02:39.835669770Z 2026-10-19T04:02:39.835640Z  INFO spark::scheduler::prefill_a_step: Chunked prefill start: 4336 prompt tokens, chunk_size=2049, max_tokens=32"
+  ],
+  "log_sha256": {
+    "rank0": "2cf615ddefb0b9e0ebdd10227e0f8f6608028ddf87e14cf71f0462e0758ce751",
+    "rank1": "4b9b44a6010ff6c98bdbba6b6e3afc0604e79bc24eda909f5b9b37b7e37c88a6"
+  }
+}

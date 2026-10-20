@@ -1,3 +1,78 @@
+# SparkGLM Heretic
+
+**共享一份基座权重，在原版与 Heretic 之间按请求热切换，无需额外保存一份完整模型。**
+
+本项目基于 [SparkGLM](https://github.com/Enntity/sparkglm) / [Atlas](https://github.com/Enntity/atlas)，将 GLM-5.3-Flash Heretic V3 LoRA 接入 NVFP4 推理。在同一个服务中，通过 OpenAI API 的 `model` 字段选择 `glm53-base` 或 `heretic`；切换请求不需要重启服务、重新加载基座或生成合并模型。额外文件为约 **70 MB 的 adapter**，基座与既有 NVFP4 overlay 由两种模式共同使用。
+
+## 实现效果
+
+- **一份基座、两种模型名**：`glm53-base` 跳过 LoRA，`heretic` 应用真实 rank-1 增量；同一服务同时提供两个入口，按请求选择。
+- **运行时计算增量**：覆盖 attention O、共享专家 down 和路由专家 down，共 5,520 对 A/B 矩阵；不合并基座、不重新量化完整模型。
+- **隔离请求身份**：adapter 身份传入双 rank，并与 KV / SSM 状态绑定，避免切换后复用另一身份的状态。
+- **可选 DFlash2**：保留单活跃请求的 Heretic DFlash 路径；默认使用普通 eager Heretic profile。
+
+历史冻结版（Atlas `289cefb`）已完成 **24/24 API 请求通过、9/9 同模型切换复现通过**，覆盖 Chat、SSE、completions、换行 stop 和分块 prefill。见[原始收据与验证范围](results/2026-10-19-heretic-dflash/RESULT.md)。
+
+当前代码已迁移到 SparkGLM `9f749f5` / Atlas `b3b016a`，该引擎补丁此前完成 CUDA/Rust 构建和离线检查，**尚未在此版本完成整模型推理复测**。上述结果不代表能力无损、跨量化后消融效果已完整评估，或已达到上游原版速度。Heretic profile 当前限单活跃请求，关闭 prefix cache、decode graph、SP 和 KV shard；后面的上游并发/1M 上下文数据不适用于此 profile。
+
+## 权重与 LoRA 来源
+
+| 用途 | Hugging Face 地址 | 说明 |
+|---|---|---|
+| 本项目使用的 NVFP4 基座 | [nvidia/GLM-5.3-Flash-NVFP4](https://huggingface.co/nvidia/GLM-5.3-Flash-NVFP4) | 复用已有权重及 Atlas overlay |
+| 原始 Heretic V3 LoRA | [MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF](https://huggingface.co/MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF) | 使用 [固定版本 c5623df](https://huggingface.co/MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF/tree/c5623df0c106cb05a6625669011f1336d6460e09) 的 `glm-5.3-heretic-lora-v3.gguf`，本地转换为 PEFT |
+| 可选 DFlash2 草稿模型 | [incoai/GLM-5.3-Flash-DFlash2](https://huggingface.co/incoai/GLM-5.3-Flash-DFlash2) | 仅 DFlash profile 使用；遵循其模型卡许可 |
+| 原始模型 | [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash) | 模型作者与架构来源 |
+
+**仓库只包含代码、配置、补丁与测试收据，不包含原始 LoRA、转换后的 adapter 或基座权重。** 原始 GGUF 的 SHA256 为 `6a1cf5e5e3d50889c7b1533fca8969f944f61293bd14c1a93365feb54b51fdc3`；本地转换输出为 69,988,048 字节，SHA256 为 `59fc0271b34a1f4f6957d5d4a6c371e1ee915b1e3e5330d76161622839c3c16d`。原作者在 Unsloth UD-IQ4_XS 上优化的指标不直接等同于本项目 NVFP4 上的效果。
+
+## 使用本项目
+
+```bash
+git clone https://github.com/mmluankoko/sparkglm-heretic.git
+cd sparkglm-heretic
+
+# 准备好仓库外的基座与原始 V3 GGUF LoRA 后，本地转换。
+# 只读取基座 safetensors 的 JSON 头部以检查目标形状，不复制基座权重。
+python3 install/heretic/scripts/convert_gguf_lora_to_peft.py \
+  --source /srv/downloads/glm-5.3-heretic-lora-v3.gguf \
+  --base /srv/models/glm/nvidia--GLM-5.3-Flash-NVFP4 \
+  --output /srv/adapters/glm53-heretic-v3-peft
+
+# 在构建机生成包含本项目引擎补丁的镜像，再将同一镜像提供给两台 Spark。
+./install/build.sh
+cp install/heretic/cluster.example.json heretic.local.json
+# 编辑 heretic.local.json：镜像 tag、SSH、路径、两机网络、API key。
+# model_config_sha256 对应已有 overlay 的 config.json（sha256sum 可核对）。
+./start.sh heretic start --dry-run
+./start.sh heretic start
+# 可选：./start.sh heretic start --profile heretic-dflash
+```
+
+`heretic.local.json` 已加入忽略规则。启动前检查两机模型路径、镜像补丁标记和文件 hash，仅同步约 70 MB adapter，不自动下载或复制完整基座。`--dry-run` 不连接机器、不调用 Docker，并隐藏 API key。停止服务用 `./start.sh heretic stop`，状态用 `./start.sh heretic status`。
+
+```python
+from openai import OpenAI
+
+client = OpenAI(base_url="http://127.0.0.1:8002/v1", api_key="你的本地API key")
+for model in ["glm53-base", "heretic", "glm53-base"]:
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": "What is 17 * 23?"}],
+        max_tokens=64,
+        temperature=0,
+    )
+    print(model, response.choices[0].message.content)
+```
+
+[实现、构建和离线验证](docs/HERETIC.md) · [引擎补丁](install/heretic/patches/atlas-glm53-heretic.patch) · [源码锁定](install/heretic/sources.lock.json) · [历史实测](results/2026-10-19-heretic-dflash/RESULT.md)
+
+---
+
+## 原始 SparkGLM 项目说明
+
+以下保留上游 README；其中性能、并发与长上下文结论属于上游配置，Heretic 的验证范围见本文开头。
+
 <p align="center">
   <img src="docs/assets/banner.png" alt="SparkGLM: GLM-5.3-Flash on two DGX Sparks" width="100%">
 </p>

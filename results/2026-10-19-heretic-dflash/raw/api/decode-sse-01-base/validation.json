@@ -1,0 +1,33 @@
+{
+  "name": "decode-sse-01-base",
+  "family": "decode-sse",
+  "kind": "chat",
+  "model": "glm53-base",
+  "passed": true,
+  "elapsed_seconds": 3.763868486999854,
+  "output": {
+    "content": "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111",
+    "reasoning_content": "The user wants all 1000 numbers. That's very long but they explicitly asked. I should comply... it's ~4000 characters. I'll do it.",
+    "usage": {
+      "prompt_tokens": 49,
+      "completion_tokens": 256,
+      "total_tokens": 305,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 33,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 218,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 373.197512,
+      "response_token/s": 75.30454909376866
+    },
+    "finish_reason": "length",
+    "first_content_end_offset": 525,
+    "event_count": 259,
+    "first_content_seconds": 0.3745886349997818
+  }
+}

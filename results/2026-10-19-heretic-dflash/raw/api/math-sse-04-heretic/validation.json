@@ -1,0 +1,33 @@
+{
+  "name": "math-sse-04-heretic",
+  "family": "math-sse",
+  "kind": "chat",
+  "model": "heretic",
+  "passed": true,
+  "elapsed_seconds": 0.44697427499977493,
+  "output": {
+    "content": "42",
+    "reasoning_content": "42",
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 4,
+      "total_tokens": 31,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 2,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 349.194727,
+      "response_token/s": 32.11058783697172
+    },
+    "finish_reason": "stop",
+    "first_content_end_offset": 518,
+    "event_count": 6,
+    "first_content_seconds": 0.35080538200054434
+  }
+}

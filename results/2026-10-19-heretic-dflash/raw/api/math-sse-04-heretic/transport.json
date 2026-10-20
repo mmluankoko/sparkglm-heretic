@@ -1,0 +1,105 @@
+{
+  "name": "math-sse-04-heretic",
+  "endpoint": "/v1/chat/completions",
+  "started_at": "2026-10-19T04:01:58.097786+00:00",
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "text/event-stream"
+    ],
+    [
+      "cache-control",
+      "no-cache"
+    ],
+    [
+      "x-request-id",
+      "req_ed924a65-c370-487f-88cf-e7b58d546b34"
+    ],
+    [
+      "openai-processing-ms",
+      "0"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Mon, 19 Oct 2026 04:01:58 GMT"
+    ]
+  ],
+  "read_timings": [
+    {
+      "received_bytes": 256,
+      "seconds": 0.0014126740006759064
+    },
+    {
+      "received_bytes": 518,
+      "seconds": 0.35080538200054434
+    },
+    {
+      "received_bytes": 770,
+      "seconds": 0.44455205900067085
+    },
+    {
+      "received_bytes": 1282,
+      "seconds": 0.4445646670001224
+    },
+    {
+      "received_bytes": 1522,
+      "seconds": 0.44456980300037685
+    },
+    {
+      "received_bytes": 1536,
+      "seconds": 0.44684594000045763
+    }
+  ],
+  "error": null,
+  "headers_seconds": 0.001333203000285721,
+  "content_type": "text/event-stream",
+  "elapsed_seconds": 0.44697427499977493,
+  "response_bytes": 1536,
+  "response_sha256": "6d966551a406ca04ae83b29ab8cf7f47d92ffdae9dc27b5f0545a8328f413be2",
+  "first_byte_seconds": 0.0014126740006759064
+}

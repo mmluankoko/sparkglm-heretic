@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Preserve patch context and archived receipt bytes, including line endings.
+*.patch -text whitespace=-blank-at-eol
+/results/2026-10-19-heretic-dflash/raw/** -text
+*.raw whitespace=-blank-at-eof

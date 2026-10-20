@@ -1,0 +1,119 @@
+{
+  "schema": "onlineheretic.dflash-candidate-ready/v1",
+  "prepared_at_utc": "2026-10-19T02:02:31.555277+00:00",
+  "status": "ready-awaiting-explicit-user-confirmation",
+  "prepared_for_empirical_start": true,
+  "startup_or_gpu_test_approved": false,
+  "new_gpu_oracle_executed": false,
+  "new_model_load_or_service_start_executed": false,
+  "profile": "heretic-dflash",
+  "profile_sha256": "c4ae0d4d7fd9eb889d95e94e8073e4a1d6097bf85f118dd3950a2f14194f1372",
+  "images": {
+    "runtime": "sha256:46eab8701e600bfd5827c096e24055f52b86f2d41749a0c3a3e6e85ede5975bc",
+    "math": "sha256:93e7c779113f50dc4d156e4195bfa72aadc5073942773b6cf47c9bb20c650104"
+  },
+  "runtime_binary_sha256": "51467dd805bf15701a57c2fbe5104e142bcdbec10384a2d50f13dafb36cf33b0",
+  "math_binary_sha256": "5a8aff77da551979cd56f3e7a4db3110b218bd9b118e9249a9b7a3eb71b3baf5",
+  "runtime_staged_nodes": [
+    "dgx01",
+    "dgx02"
+  ],
+  "math_staged_nodes": [
+    "dgx01"
+  ],
+  "upstream_commit": "289cefbccdd6c13117228863c7237da17e47a92a",
+  "source_patch_sha256": "0796eac26a683bac5afa3a949f700ce150988403d54344de40acade8bb97368f",
+  "source_file_count": 93,
+  "source_snapshot": "evidence/source-lock-dflash-candidate.json",
+  "patch_snapshot": "evidence/source-dflash-candidate.patch",
+  "files_sha256": {
+    "Dockerfile": "a95cc38a186b30cc89ef7802df1761755f670caafb7e8012a54a57cc7c893067",
+    "build.sh": "1d928c99a078ab4cacd0a882b88e29c1aefc3c99cf8de4c8a3bab8596ae876a3",
+    "scripts/cluster.py": "b2f4480fcb5aa76d203743b6dca57d683045053d61141565aa42ac9d9f416522",
+    "scripts/node.py": "b580d3a8c1b8f221c874411a4c6e87a8e85440e05135f91ca40b97f0eb5116fa",
+    "profiles/heretic-dflash.json": "c4ae0d4d7fd9eb889d95e94e8073e4a1d6097bf85f118dd3950a2f14194f1372",
+    "evidence/source-lock-dflash-candidate.json": "05110654e65ca376e5b94b3da9febdfe6cad87887c160c91dcddf399437743a9"
+  },
+  "offline_checks": {
+    "cpu_policy_identity_stop_launch": 28,
+    "compact_planner": 5,
+    "production_cpp_offset_helper": "passed",
+    "python": 9,
+    "rustfmt_modified_files": 88,
+    "spdx_file_cap_diff": "passed",
+    "patch_apply": "passed on clean pinned source",
+    "real_cuda_modules": 237,
+    "full_engine_and_oracle_tool_build": "passed",
+    "runtime_cli_help": "passed without GPU devices; 32 candidate flags present",
+    "static_review": "evidence/dflash-candidate-review.md"
+  },
+  "two_node_preflight": [
+    {
+      "rank": 0,
+      "image": "sha256:46eab8701e600bfd5827c096e24055f52b86f2d41749a0c3a3e6e85ede5975bc",
+      "preflight": "passed",
+      "mode": "heretic-dflash",
+      "model_config_sha256": "41db2811023b40ba4c8f8bbba88bce7dff377af51ecd18b32469a2a07064ebaf",
+      "model_shards_present": 33,
+      "drafter_files_present": true,
+      "adapter_sha256": {
+        "adapter_config.json": "eef40842e770da0d5aca2caea37dc5f74650bbafeca33293bdea333c9d1e3e08",
+        "adapter_model.safetensors": "59fc0271b34a1f4f6957d5d4a6c371e1ee915b1e3e5330d76161622839c3c16d"
+      },
+      "interface": "enp1s0f0np0",
+      "node_ip": "10.100.176.2",
+      "active_hcas": [
+        "rocep1s0f0",
+        "roceP2p1s0f0"
+      ],
+      "api_or_worker_port_available": true,
+      "master_port_available": true,
+      "running_containers": []
+    },
+    {
+      "rank": 1,
+      "image": "sha256:46eab8701e600bfd5827c096e24055f52b86f2d41749a0c3a3e6e85ede5975bc",
+      "preflight": "passed",
+      "mode": "heretic-dflash",
+      "model_config_sha256": "41db2811023b40ba4c8f8bbba88bce7dff377af51ecd18b32469a2a07064ebaf",
+      "model_shards_present": 33,
+      "drafter_files_present": true,
+      "adapter_sha256": {
+        "adapter_config.json": "eef40842e770da0d5aca2caea37dc5f74650bbafeca33293bdea333c9d1e3e08",
+        "adapter_model.safetensors": "59fc0271b34a1f4f6957d5d4a6c371e1ee915b1e3e5330d76161622839c3c16d"
+      },
+      "interface": "enp1s0f0np0",
+      "node_ip": "10.100.176.1",
+      "active_hcas": [
+        "rocep1s0f0",
+        "roceP2p1s0f0"
+      ],
+      "api_or_worker_port_available": true,
+      "master_port_available": null,
+      "running_containers": [
+        "hermes",
+        "litellm-proxy",
+        "sparkDash",
+        "litellm-postgres"
+      ]
+    }
+  ],
+  "project_services": {
+    "heretic-dflash": "absent on both ranks",
+    "heretic": "absent on both ranks",
+    "stock": "absent on both ranks"
+  },
+  "next_after_user_confirmation": [
+    "GPU synthetic oracle: 16 general + 10 compact/original + 32 direct-pair/M1 prepared cases",
+    "Start only heretic-dflash profile after oracle passes",
+    "24-request accelerated dual API, actual DFlash target identities/acceptance/timing evidence"
+  ],
+  "optional_extension_requires_confirmation": "30-request longer-decode and >32k prompt group",
+  "test_plan": "DFLASH_TEST_PLAN.md",
+  "limitations": [
+    "No newly added kernel GPU result or whole-model DFlash result yet",
+    "No original-speed parity or acceptance-rate conclusion",
+    "No 200k/384k capacity, prefix, KV-shard, SP, multi-owner or four-sequence claim",
+    "Read-only preflight is point-in-time; repeat before approved start"
+  ]
+}

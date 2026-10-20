@@ -1,0 +1,20 @@
+{
+  "_license": "SPDX-License-Identifier: AGPL-3.0-only",
+  "image": "sparkglm-heretic:REPLACE_WITH_INSTALL_TREE_TAG",
+  "worker": "you@192.0.2.2",
+  "project": "/srv/sparkglm-heretic",
+  "model_root": "/srv/models/glm",
+  "model": "/srv/models/glm/atlas-overlay",
+  "drafter": "/srv/models/glm/incoai--GLM-5.3-Flash-DFlash2",
+  "adapter": "/srv/adapters/glm53-heretic-v3-peft",
+  "model_config_sha256": "41db2811023b40ba4c8f8bbba88bce7dff377af51ecd18b32469a2a07064ebaf",
+  "api_key": "REPLACE_WITH_YOUR_LOCAL_API_KEY",
+  "api_bind": "127.0.0.1",
+  "api_port": 8002,
+  "worker_port": 8896,
+  "master_port": 29627,
+  "nodes": [
+    {"ip": "192.0.2.1", "interface": "enp1s0f0np0", "hcas": ["rocep1s0f0", "roceP2p1s0f0"]},
+    {"ip": "192.0.2.2", "interface": "enp1s0f0np0", "hcas": ["rocep1s0f0", "roceP2p1s0f0"]}
+  ]
+}

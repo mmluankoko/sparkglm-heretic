@@ -1,0 +1,81 @@
+{
+  "name": "decode-chat-03-base",
+  "endpoint": "/v1/chat/completions",
+  "started_at": "2026-10-19T04:02:10.959361+00:00",
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "application/json"
+    ],
+    [
+      "x-request-id",
+      "req_338f5637-3015-415a-abc4-0391ade25145"
+    ],
+    [
+      "openai-processing-ms",
+      "3754"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Mon, 19 Oct 2026 04:02:14 GMT"
+    ]
+  ],
+  "read_timings": [
+    {
+      "received_bytes": 1089,
+      "seconds": 3.7548838840002645
+    }
+  ],
+  "error": null,
+  "headers_seconds": 3.754718862000118,
+  "content_type": "application/json",
+  "elapsed_seconds": 3.754961292000189,
+  "response_bytes": 1089,
+  "response_sha256": "449458860e441355c9c299161c33f4f6598f885e0d0fc71ae0490263719f782d",
+  "first_byte_seconds": 3.7548838840002645
+}

@@ -1,0 +1,105 @@
+{
+  "name": "math-sse-01-base",
+  "endpoint": "/v1/chat/completions",
+  "started_at": "2026-10-19T04:01:56.944382+00:00",
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "text/event-stream"
+    ],
+    [
+      "cache-control",
+      "no-cache"
+    ],
+    [
+      "x-request-id",
+      "req_3b1811d2-6399-4f27-8b05-50d0f93ae3a6"
+    ],
+    [
+      "openai-processing-ms",
+      "0"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Mon, 19 Oct 2026 04:01:56 GMT"
+    ]
+  ],
+  "read_timings": [
+    {
+      "received_bytes": 259,
+      "seconds": 0.0009389830001964583
+    },
+    {
+      "received_bytes": 524,
+      "seconds": 0.2626895909997984
+    },
+    {
+      "received_bytes": 779,
+      "seconds": 0.34346022099998663
+    },
+    {
+      "received_bytes": 1301,
+      "seconds": 0.3434757089999039
+    },
+    {
+      "received_bytes": 1544,
+      "seconds": 0.34348137300003145
+    },
+    {
+      "received_bytes": 1558,
+      "seconds": 0.3456722629998694
+    }
+  ],
+  "error": null,
+  "headers_seconds": 0.0008990470005301177,
+  "content_type": "text/event-stream",
+  "elapsed_seconds": 0.3458495730001232,
+  "response_bytes": 1558,
+  "response_sha256": "45fa55c548a1f7bc461057d9587fa3f85afd06a336ffc1eb618e318d2b036fb8",
+  "first_byte_seconds": 0.0009389830001964583
+}

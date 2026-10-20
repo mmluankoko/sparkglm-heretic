@@ -68,8 +68,20 @@ requires you to offer them your modified source.
 
 ## Models
 
-No weights are distributed here. `./start.sh` downloads them from their
-publishers:
+No weights are distributed here. The original `./start.sh` downloads them
+from the publishers listed below.
+
+The Heretic fork's explicit `./start.sh heretic` launcher reuses local weights
+and synchronizes only a locally converted adapter. Its source adapter is
+[`MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF`](https://huggingface.co/MorinoNushi/GLM-5.3-Flash-Heretic-Abliterated-LoRA-V3-GGUF)
+at `c5623df0c106cb05a6625669011f1336d6460e09` (MIT, per its model card).
+Neither the original GGUF nor the converted PEFT weights are distributed.
+The fork's engine patch and integration code are AGPL-3.0-only; complete
+corresponding engine source is the pinned Atlas source plus
+`install/heretic/patches/atlas-glm53-heretic.patch`, locked by
+`install/heretic/sources.lock.json`.
+
+Upstream model sources:
 
 - [`nvidia/GLM-5.3-Flash-FP4-Local`](https://huggingface.co/nvidia/GLM-5.3-Flash-FP4-Local)
   (the default): the NVIDIA Open Model Agreement; the GLM-5.3-Flash base model

@@ -1,0 +1,30 @@
+{
+  "method": "POST",
+  "url": "http://127.0.0.1:8002/v1/chat/completions",
+  "body": {
+    "model": "glm53-base",
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 32,
+    "stream": true,
+    "top_p": 1,
+    "repetition_penalty": 1,
+    "presence_penalty": 0,
+    "frequency_penalty": 0,
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is 17 + 25? Reply with the decimal integer only."
+      }
+    ],
+    "enable_thinking": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "min_tokens": 1,
+    "stream_options": {
+      "include_usage": true
+    }
+  },
+  "authorization": "Bearer [REDACTED]"
+}

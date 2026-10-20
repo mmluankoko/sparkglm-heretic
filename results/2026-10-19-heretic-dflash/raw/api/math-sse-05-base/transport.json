@@ -1,0 +1,105 @@
+{
+  "name": "math-sse-05-base",
+  "endpoint": "/v1/chat/completions",
+  "started_at": "2026-10-19T04:01:58.546087+00:00",
+  "status": 200,
+  "headers": [
+    [
+      "content-type",
+      "text/event-stream"
+    ],
+    [
+      "cache-control",
+      "no-cache"
+    ],
+    [
+      "x-request-id",
+      "req_6fc1c8d9-3644-42e6-aa8b-b40d9bb253cd"
+    ],
+    [
+      "openai-processing-ms",
+      "0"
+    ],
+    [
+      "x-ratelimit-limit-requests",
+      "1000000"
+    ],
+    [
+      "x-ratelimit-remaining-requests",
+      "999999"
+    ],
+    [
+      "x-ratelimit-reset-requests",
+      "0s"
+    ],
+    [
+      "x-ratelimit-limit-tokens",
+      "1000000000"
+    ],
+    [
+      "x-ratelimit-remaining-tokens",
+      "999999999"
+    ],
+    [
+      "x-ratelimit-reset-tokens",
+      "0s"
+    ],
+    [
+      "openai-organization",
+      "atlas-local"
+    ],
+    [
+      "openai-version",
+      "2026-01-01"
+    ],
+    [
+      "access-control-allow-origin",
+      "*"
+    ],
+    [
+      "connection",
+      "close"
+    ],
+    [
+      "transfer-encoding",
+      "chunked"
+    ],
+    [
+      "date",
+      "Mon, 19 Oct 2026 04:01:58 GMT"
+    ]
+  ],
+  "read_timings": [
+    {
+      "received_bytes": 259,
+      "seconds": 0.0014840169997114572
+    },
+    {
+      "received_bytes": 524,
+      "seconds": 0.27855679399999644
+    },
+    {
+      "received_bytes": 779,
+      "seconds": 0.3623038910000105
+    },
+    {
+      "received_bytes": 1302,
+      "seconds": 0.3623159230000965
+    },
+    {
+      "received_bytes": 1545,
+      "seconds": 0.3623214270000972
+    },
+    {
+      "received_bytes": 1559,
+      "seconds": 0.3645063969997864
+    }
+  ],
+  "error": null,
+  "headers_seconds": 0.0014066900002944749,
+  "content_type": "text/event-stream",
+  "elapsed_seconds": 0.3646730669997851,
+  "response_bytes": 1559,
+  "response_sha256": "5f48a6934de7a4f8b3bc0aac6a01d4f0ba971e7e2e4953e5f2e6bc3ac4097a4d",
+  "first_byte_seconds": 0.0014840169997114572
+}

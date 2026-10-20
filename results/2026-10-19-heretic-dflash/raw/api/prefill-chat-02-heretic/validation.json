@@ -1,0 +1,30 @@
+{
+  "name": "prefill-chat-02-heretic",
+  "family": "prefill-chat",
+  "kind": "chat",
+  "model": "heretic",
+  "passed": true,
+  "elapsed_seconds": 10.20656645300005,
+  "output": {
+    "content": "42",
+    "reasoning_content": "",
+    "usage": {
+      "prompt_tokens": 4336,
+      "completion_tokens": 3,
+      "total_tokens": 4339,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 1,
+        "rejected_prediction_tokens": 0
+      },
+      "time_to_first_token_ms": 9991.466504,
+      "response_token/s": 9.72322447734642
+    },
+    "finish_reason": "stop"
+  }
+}

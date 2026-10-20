@@ -12,6 +12,10 @@
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 if [[ -f .env ]]; then set -a; . ./.env; set +a; fi
+if [[ ${1:-} == heretic ]]; then
+  shift
+  exec python3 install/heretic/scripts/cluster.py "$@"
+fi
 : "${WORKER:?set WORKER in .env to the ssh destination of the other Spark (see .env.example)}"
 MODEL_ROOT=${MODEL_ROOT:-$HOME/models/sparkglm}
 PROFILE=${PROFILE:-4x1m}

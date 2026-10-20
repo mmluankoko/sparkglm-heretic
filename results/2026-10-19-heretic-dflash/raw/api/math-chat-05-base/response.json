@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-3fa6b46b-8c90-451f-a631-87446bf638ac",
+  "object": "chat.completion",
+  "created": 1792382516,
+  "model": "glm53-base",
+  "system_fingerprint": "fp_atlas",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "42",
+        "content": "42"
+      },
+      "finish_reason": "stop",
+      "logprobs": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 27,
+    "completion_tokens": 4,
+    "total_tokens": 31,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 2,
+      "rejected_prediction_tokens": 0
+    },
+    "time_to_first_token_ms": 281.320314,
+    "response_token/s": 37.396563442802425
+  }
+}

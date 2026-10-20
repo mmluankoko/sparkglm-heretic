@@ -196,6 +196,8 @@ COPY install/heretic/sources.lock.json /opt/atlas/heretic-source-manifest.json
 COPY engine/LICENSE /LICENSE
 ENV LD_LIBRARY_PATH=/opt/atlas/native:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64
 ENV RUST_LOG=info
+# Match the existing Heretic runtime and release profiles' consolidated transpose.
+ENV ATLAS_MOE_INPLACE_TRANSPOSE=0
 EXPOSE 8893
 # The image's identity is the git tree of install/ (its tag); label it last.
 ARG INSTALL_TREE
